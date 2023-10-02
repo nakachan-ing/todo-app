@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { dummyData } from '../dummyData'
+import { TodoItem } from './TodoItem'
 
 export const Todo = () => {
     const [items, setItem] = useState(dummyData)
@@ -8,14 +9,9 @@ export const Todo = () => {
   return (
     <div className='panel'>
         <div className='panel-heading'>Todo App</div>
-
         {items.map((item) => (
-            <div className='panel-block' key={item.id}>
-                <input type='checkbox'/>
-                <span>{item.text}</span>
-            </div>
+            <TodoItem key={item.id} item={item}/>
         ))}
-
         <div className='panel-block'>
             <span>{items.length} items</span>
         </div>
