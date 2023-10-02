@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { dummyData } from '../dummyData'
 
 export const Todo = () => {
+    const [items, setItem] = useState(dummyData)
+    console.log(items)
+
   return (
     <div className='panel'>
         <div className='panel-heading'>Todo App</div>
