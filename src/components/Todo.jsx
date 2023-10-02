@@ -8,11 +8,16 @@ export const Todo = () => {
   return (
     <div className='panel'>
         <div className='panel-heading'>Todo App</div>
-        <div className='panel-block'>ここにTodoを表示</div>
-        <div className='panel-block'>ここにTodoを表示</div>
-        <div className='panel-block'>ここにTodoを表示</div>
+
+        {items.map((item) => (
+            <div className='panel-block' key={item.id}>
+                <input type='checkbox'/>
+                <span>{item.text}</span>
+            </div>
+        ))}
+
         <div className='panel-block'>
-            <span>ここにTodo数を表示</span>
+            <span>{items.length} items</span>
         </div>
     </div>
   )
