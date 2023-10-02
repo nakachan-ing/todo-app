@@ -9,7 +9,7 @@ export const TodoItem = ({item, onCheck}) => {
   return (
     <div className='panel-block' key={item.id}>
         <input type='checkbox' checked={item.done} onChange={handleChange} value={item}/>
-        <span>{item.text}</span>
+        <span className={item.done ? "has-text-grey-light" : ""}>{item.text}</span>
     </div>
   )
 }
