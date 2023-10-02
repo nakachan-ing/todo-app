@@ -6,11 +6,21 @@ export const Todo = () => {
     const [items, setItem] = useState(dummyData)
     console.log(items)
 
+    const handleChangeCheck = (checked) => {
+        const newItems = items.map((item) => {
+            if(item.id === checked.id) {
+                item.done = !item.done
+            }
+            return item
+        })
+        setItem(newItems)
+    }
+
   return (
     <div className='panel'>
         <div className='panel-heading'>Todo App</div>
         {items.map((item) => (
-            <TodoItem key={item.id} item={item}/>
+            <TodoItem key={item.id} item={item} onCheck={handleChangeCheck}/>
         ))}
         <div className='panel-block'>
             <span>{items.length} items</span>
