@@ -8,6 +8,7 @@ import { Filter } from './Filter'
 export const Todo = () => {
     const [items, setItems] = useState(dummyData)
     console.log(items)
+    const [filter, setFilter] = useState('All')
 
     const handleChangeCheck = (checked) => {
         const newItems = items.map((item) => {
@@ -23,16 +24,27 @@ export const Todo = () => {
         setItems([...items, {id: uuidv4(), text, done: false}])
     }
 
+    const handleFilterChange = (value) => {
+        setFilter(value)
+        console.log(filter)
+    }
+
+    const displayItems = items.filter((item) => {
+        if(filter === 'All') {return true}
+        if(filter === 'Todo') {return !item.done}
+        if(filter === 'Done') {return item.done}
+    })
+
   return (
     <div className='panel'>
         <div className='panel-heading'>Todo App</div>
         <Input onAdd={handleAddTodo}/>
-        <Filter />
-        {items.map((item) => (
+        <Filter onFilter={handleFilterChange}/>
+        {displayItems.map((item) => (
             <TodoItem key={item.id} item={item} onCheck={handleChangeCheck}/>
         ))}
         <div className='panel-block'>
-            <span>{items.length} items</span>
+            <span>{displayItems.length} items</span>
         </div>
     </div>
   )
