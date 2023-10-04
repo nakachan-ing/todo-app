@@ -28,9 +28,9 @@ export const Todo = () => {
     }
 
     const displayItems = items.filter((item) => {
-        if(filter === 'All') {return true}
-        if(filter === 'Todo') {return !item.done}
-        if(filter === 'Done') {return item.done}
+        if(filter === 'All') return true
+        if(filter === 'Todo') return !item.done
+        if(filter === 'Done') return item.done
     })
 
   return (
