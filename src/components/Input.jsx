@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const Input = () => {
+export const Input = ({onAdd}) => {
     const [text, setText] = useState('')
 
     const handleInput = (e) => {
@@ -8,10 +8,15 @@ export const Input = () => {
         setText(e.target.value)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        onAdd(text)
+    }
+
   return (
     <div className='panel-block'>
-        <form>
-            <input className='input' type='text' onChange={handleInput}></input>
+        <form onSubmit={handleSubmit}>
+            <input className='input' type='text' onChange={handleInput} value={text}></input>
         </form>
         
     </div>
