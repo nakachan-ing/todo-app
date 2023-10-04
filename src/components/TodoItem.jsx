@@ -3,7 +3,6 @@ import React from 'react'
 export const TodoItem = ({item, onCheck}) => {
     const handleChange = () => {
         onCheck(item)
-        console.log(item.done)
     }
 
   return (

@@ -7,7 +7,6 @@ import { Filter } from './Filter'
 
 export const Todo = () => {
     const [items, setItems] = useState(dummyData)
-    console.log(items)
     const [filter, setFilter] = useState('All')
 
     const handleChangeCheck = (checked) => {
@@ -26,7 +25,6 @@ export const Todo = () => {
 
     const handleFilterChange = (value) => {
         setFilter(value)
-        console.log(filter)
     }
 
     const displayItems = items.filter((item) => {

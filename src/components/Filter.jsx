@@ -2,7 +2,6 @@ import React from 'react'
 
 export const Filter = ({onFilter}) => {
     const handleClick = (value) => {
-        console.log(value)
         onFilter(value)
     }
 

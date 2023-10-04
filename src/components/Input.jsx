@@ -4,7 +4,6 @@ export const Input = ({onAdd}) => {
     const [text, setText] = useState('')
 
     const handleInput = (e) => {
-        console.log(e.target.value)
         setText(e.target.value)
     }
 
