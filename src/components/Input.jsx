@@ -11,6 +11,7 @@ export const Input = ({onAdd}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         onAdd(text)
+        setText('')
     }
 
   return (
